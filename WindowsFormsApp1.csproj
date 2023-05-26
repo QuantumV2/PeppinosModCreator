@@ -49,7 +49,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Addto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Addto.Designer.cs">
+      <DependentUpon>Addto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class1.cs" />
+    <Compile Include="componentwindowmanager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="componentwindowmanager.Designer.cs">
+      <DependentUpon>componentwindowmanager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +70,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Addto.resx">
+      <DependentUpon>Addto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="componentwindowmanager.resx">
+      <DependentUpon>componentwindowmanager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

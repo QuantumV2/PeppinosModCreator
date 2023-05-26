@@ -8,17 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace WindowsFormsApp1
 {
+
     public partial class PeppinoModCreator : Form
     {
+        public string codeStr;
         List<string> lsCode = new List<string>();
-        
+
         public PeppinoModCreator()
         {
             InitializeComponent();
         }
 
+        Point lastPoint;
         private void Form1_Load(object sender, EventArgs e)
         {
             this.FormClosing += QuitAPP;
@@ -30,30 +34,37 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!relCheckBox.Checked) 
+            if (!relCheckBox.Checked)
             {
-            lsCode.Add(varTextBoxName.Text + " = " + varTextBoxVal.Text);
+                lsCode.Add(varTextBoxName.Text + " = " + varTextBoxVal.Text);
             }
             else
             {
                 lsCode.Add(varTextBoxName.Text + " += " + varTextBoxVal.Text);
             }
-            var formPopup = new Form();
+            if (varTextBoxVal.Contains(-) = true )
+            {
+                lsCode.Add(varTextBoxName.Text + " -= " + varTextBoxVal.Text);
+            }
+            var formPopup = new Addto();
             formPopup.Show(this);
             formPopup.Name = "Add this to " + objTextBox.Text;
             formPopup.Text = "Add this to " + objTextBox.Text;
+            Font SmallFont = new Font("Pepperoni", 20);
+            codeStr = string.Join("\n", lsCode.ToArray());
             TextBox code = new TextBox()
             {
-                Text = string.Join("\n", lsCode.ToArray()),
+                Text = codeStr,
                 ReadOnly = true,
                 BorderStyle = 0,
                 BackColor = this.BackColor,
+                ForeColor = Color.White,
                 TabStop = false,
                 Multiline = true,
-                Location = new Point(10, 10),
+                Location = new Point(12, 50),
                 TabIndex = 10,
-                Size = new System.Drawing.Size(99, 500)
-        };
+                Size = new System.Drawing.Size(353, 394)
+            };
 
             formPopup.Controls.Add(code);
             //lsCode.Clear();
@@ -79,19 +90,48 @@ namespace WindowsFormsApp1
             }
 
         }
-        
+
         // Use this event handler for the FormClosing event.
         private void DontLiquidate(object sender, FormClosingEventArgs e)
         {
             formPopup_Comp.Hide();
             e.Cancel = true; // this cancels the close event.
         }
-        private void QuitAPP(object sender, FormClosingEventArgs e)
+private void QuitAPP(object sender, FormClosingEventArgs e)
         {
             if (formPopup_Comp != null) { 
             formPopup_Comp.FormClosing -= DontLiquidate;
             }
             e.Cancel = false;
         }
-    }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastPoint.X;
+                this.Top += e.Y - lastPoint.Y;
+            }
+        }
+
+		private void panel1_MouseDown(object sender, MouseEventArgs e)
+		{
+            lastPoint = new Point(e.X, e.Y);
+		}
+
+		private void button1_Click_2(object sender, EventArgs e)
+		{
+            Application.Exit();
+		}
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+            WindowState = FormWindowState.Minimized;
+		}
+	}
 }
