@@ -36,11 +36,11 @@
             this.addComp = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.logo = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonRemove = new System.Windows.Forms.Button();
-            this.logo = new System.Windows.Forms.PictureBox();
             this.tipButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -133,6 +133,17 @@
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
+            // logo
+            // 
+            this.logo.Image = global::WindowsFormsApp1.Properties.Resources.icon;
+            this.logo.Location = new System.Drawing.Point(20, 7);
+            this.logo.Name = "logo";
+            this.logo.Size = new System.Drawing.Size(32, 32);
+            this.logo.TabIndex = 13;
+            this.logo.TabStop = false;
+            this.logo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.logo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
             // button2
             // 
             this.button2.FlatAppearance.BorderSize = 0;
@@ -193,19 +204,9 @@
             this.buttonRemove.UseVisualStyleBackColor = false;
             this.buttonRemove.Click += new System.EventHandler(this.button3_Click);
             // 
-            // logo
-            // 
-            this.logo.Image = global::WindowsFormsApp1.Properties.Resources.icon;
-            this.logo.Location = new System.Drawing.Point(20, 7);
-            this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(32, 32);
-            this.logo.TabIndex = 13;
-            this.logo.TabStop = false;
-            this.logo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
-            this.logo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
-            // 
             // tipButton
             // 
+            this.tipButton.AutoSize = true;
             this.tipButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.tipButton.FlatAppearance.BorderSize = 0;
             this.tipButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
