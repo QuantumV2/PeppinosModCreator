@@ -16,6 +16,21 @@ namespace WindowsFormsApp1
 
     public partial class PeppinoModCreator : Form
     {
+        private Form activeForm = null;
+
+        private void openChildForm(Form childForm)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelviewer.Controls.Add(childForm);
+            panelviewer.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
         public class Version
         {
             public string major = "0";
@@ -194,6 +209,19 @@ private void QuitAPP(object sender, FormClosingEventArgs e)
             int rInt = r.Next(0, tipArray.Length);
             this.tipLabel.Text = "Tip: " + tipArray[rInt];
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            openChildForm(new test());
+            panelviewer.Visible = true;
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            panelviewer.Visible = false;
+        }
+
+        //you can change the button names im lazy asf
 
 
         //this idea is bad actually i think ill use console for debugging like wtf

@@ -59,6 +59,12 @@
       <DependentUpon>Addto.cs</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
+    <Compile Include="test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="test.Designer.cs">
+      <DependentUpon>test.cs</DependentUpon>
+    </Compile>
     <Compile Include="componentwindowmanager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Addto.resx">
       <DependentUpon>Addto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="test.resx">
+      <DependentUpon>test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="componentwindowmanager.resx">
       <DependentUpon>componentwindowmanager.cs</DependentUpon>
